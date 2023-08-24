@@ -80,7 +80,7 @@ function newShaderEffect(name, max_num)
 	
 	for i = 1, max_num do makeShaderEntry(0, 0, 0, name, 0) end
 	for i = 1, max_num do 
-		GameSetPostFxParameter( name .. i, 0f, 0f, 0f, 0f ) 
+		GameSetPostFxParameter( name .. i, 0.0, 0.0, 0.0, 0.0 ) 
 		print("completed " .. name .. i)
 	end
 	
@@ -88,7 +88,7 @@ function newShaderEffect(name, max_num)
 		local currentUniform = name .. i
 		postfx.append(
 		[[
-		if (]].. currentUniform ..[[.w > 0) {
+		if (]].. currentUniform ..[[.w > 0.0) {
 			]] .. name .. [[(]].. currentUniform ..[[.x, ]].. currentUniform ..[[.y, ]].. currentUniform ..[[.z); //THE FUNCTION THAT RETURNS AN ERROR!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 		}
 		]],

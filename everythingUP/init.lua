@@ -88,7 +88,7 @@ function AppendAll()
 		--shader execution
 	postfx.append(
 	[[
-		color += everythingUP_ShockWave(tex_coord, vec2(1.0, 0.0), 1.0, 1.0);
+		color += everythingUP_ShockWave(0.5, 0.5, 1.0);
 	]],
 		"// various debug visualizations================================================================================",
 		"data/shaders/post_final.frag"
