@@ -1,0 +1,46 @@
+<Sprite
+	filename="mods/everythingUP/files/entities/enemies_gfx/crude_slime.png"
+	hotspots_filename=""
+	offset_x="9"
+	offset_y="6"
+  default_animation="stand" >
+
+ <RectAnimation
+  name="stand"
+  pos_x="0"
+  pos_y="26"
+  frame_count="1"
+  frame_width="18"
+  frame_height="12"
+  frame_wait="0.09"
+  frames_per_row="1"
+  loop="1"   >
+ </RectAnimation>
+
+  <!-- total animation (should be) 1 second long -->
+ <RectAnimation
+  name="emerge"
+  pos_x="0"
+  pos_y="26"
+  frame_count="4"
+  frame_width="18"
+  frame_height="12"
+  frame_wait="0.33"
+  frames_per_row="4"
+  loop="0"   >
+ </RectAnimation>
+
+ <RectAnimation
+  name="attack_ranged"
+  pos_x="0"
+  pos_y="13"
+  frame_count="5"
+  frame_width="18"
+  frame_height="12"
+  frame_wait="0.08"
+  frames_per_row="6"
+  shrink_by_one_pixel="1"
+  loop="0"   >
+  <Event frame="4" name="shoot_bullet" probability="1" check_physics_material="0" on_finished="0"/>
+ </RectAnimation>
+</Sprite>
