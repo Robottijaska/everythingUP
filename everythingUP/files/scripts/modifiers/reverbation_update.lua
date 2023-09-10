@@ -21,4 +21,4 @@ projID = getShaderWithIDandBaseName(parent_id, "everythingUP_ShockWave_COLOR").p
 comp = EntityGetFirstComponentIncludingDisabled(projID, "VariableStorageComponent", "shaderProjectile_paramNum")
 ComponentSetValue2(comp, "value_float", newRadius)
 
-GamePrint("newRad: " .. newRadius)
+--GamePrint("newRad: " .. newRadius)

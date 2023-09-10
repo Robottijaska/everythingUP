@@ -277,7 +277,7 @@ function spawnShader(lifetime, paramNum, baseName, x, y, id, isStackable, isBoun
         print("new shader loaded with id " .. entity_id)
 		return entity_id
 	end
-    GamePrint("ERROR: " .. baseName)
+    --GamePrint("ERROR: " .. baseName)
 	return 0
 end
 
