@@ -1,0 +1,12 @@
+<Entity name="none">
+
+	<InheritTransformComponent>
+    </InheritTransformComponent>
+
+	<GameEffectComponent 
+		effect="CUSTOM"
+		custom_effect_id="NONE"
+		frames="-1" >
+	</GameEffectComponent>
+
+</Entity>

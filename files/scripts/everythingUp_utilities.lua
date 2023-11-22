@@ -51,6 +51,39 @@ postfx = {
     end,
 }
 
+function stringToMonoStrTable(str)
+    local output = {}
+
+    for value in str:gmatch("([^,]+)") do
+        table.insert(output, value)
+    end
+
+    if #output == 0 then
+        table.insert(output, str)
+    end
+
+    return output
+end
+
+function monoTableToString(tbl)
+    local output = {}
+
+    for _, i in ipairs(tbl) do
+        table.insert(output, tostring(i))
+    end
+
+    return table.concat(output, ",")
+end
+
+function getPlayer()
+    local n = EntityGetWithTag( "player_unit" )
+    if n then
+      return n[1]
+    end
+    return nil
+end
+
+--SHADERS--
 function getShaderEffects()
     local input = ModSettingGet("everythingUP_shaderEffects")
     --print("getShaderEffects input: " .. input )
@@ -294,27 +327,3 @@ function deleteShader(name)
 	end
     --GamePrint("could not find shader named "..name)
 end
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

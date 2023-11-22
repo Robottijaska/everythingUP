@@ -1,0 +1,17 @@
+<Entity name="impact_vest">
+
+	<InheritTransformComponent>
+    </InheritTransformComponent>
+
+	<GameEffectComponent 
+		effect="CUSTOM"
+		custom_effect_id="IMPACT_VEST"
+		frames="-1" >
+	</GameEffectComponent>
+
+	<LuaComponent
+	    script_source_file="mods/everythingUP/files/equipment/chest/impact_vest_update.lua"
+		execute_every_n_frame="0"
+	></LuaComponent>
+
+</Entity>

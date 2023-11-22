@@ -19,12 +19,68 @@ end
 function OnPlayerSpawned( player_entity ) -- This runs when player entity has been created
 	GamePrint( "OnPlayerSpawned() - Player entity id: " .. tostring(player_entity) )
 end
+]]--
 
+dofile_once("mods/everythingUP/files/scripts/equipment/equipmentGUI.lua")
+EquipmentGUI = {
+	id = GuiCreate(),
+	x = 500,
+	y = 175,
+	w = 100,
+	h = 150,
+
+	head = GuiCreate(),
+	head_order = {
+		{"none", "mods/everythingUP/files/ui_gfx/equipmentselect/none.png",	"",
+		""},
+		{"mask_love", "mods/everythingUP/files/ui_gfx/equipmentselect/head/mask_love.png", "Rose Mask",
+		"Increases damage based on the number of charmed creatures nearby"}
+	},
+
+	chest = GuiCreate(),
+	chest_order = {
+		{"none", "mods/everythingUP/files/ui_gfx/equipmentselect/none_tall.png", "",
+		""},
+		{"impact_vest", "mods/everythingUP/files/ui_gfx/equipmentselect/chest/impact_vest.png", "Impact Vest",
+		"Does large damage when colliding into enemies at high speed"}
+	},
+
+	arm = GuiCreate(),
+	arm_order = {
+		{"none", "mods/everythingUP/files/ui_gfx/equipmentselect/none.png", "",
+		""},
+		--CHANGE
+		{"mask_love", "mods/everythingUP/files/ui_gfx/equipmentselect/head/mask_love.png", "Rose Mask",
+		"Increases damage based on the number of charmed creatures nearby"}
+	},
+
+	leg = GuiCreate(),
+	leg_order = {
+		{"none", "mods/everythingUP/files/ui_gfx/equipmentselect/none.png", "",
+		""},
+		--CHANGE
+		{"mask_love", "mods/everythingUP/files/ui_gfx/equipmentselect/head/mask_love.png", "Rose Mask",
+		"Increases damage based on the number of charmed creatures nearby"}
+	},
+}
 function OnWorldInitialized() -- This is called once the game world is initialized. Doesn't ensure any world chunks actually exist. Use OnPlayerSpawned to ensure the chunks around player have been loaded or created.
+	GlobalsSetValue("EquipmentGUI_isOpen", "0")
+
+	GlobalsSetValue("EquipmentGUI_HeadEquipmentCollected", "none,mask_love")
+	GlobalsSetValue("EquipmentGUI_CurrentHeadEquipment", "none")
+
+	GlobalsSetValue("EquipmentGUI_ChestEquipmentCollected", "none,impact_vest")
+	GlobalsSetValue("EquipmentGUI_CurrentChestEquipment", "none")
+
+	GlobalsSetValue("EquipmentGUI_ArmEquipmentCollected", "none")
+	GlobalsSetValue("EquipmentGUI_CurrentArmEquipment", "none")
+
+	GlobalsSetValue("EquipmentGUI_LegEquipmentCollected", "none")
+	GlobalsSetValue("EquipmentGUI_CurrentLegEquipment", "none")
 end
 
-]]--
 function OnWorldPreUpdate() -- This is called every time the game is about to start updating the world
+	UpdateEquipmentGUI()
 end
 --[[
 
